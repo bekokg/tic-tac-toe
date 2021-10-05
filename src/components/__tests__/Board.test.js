@@ -1,5 +1,7 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, cleanup } from '@testing-library/react';
 import Board from '../Board';
+
+afterEach(cleanup);
 
 test('renders Board component', () => {
   render(<Board />);
