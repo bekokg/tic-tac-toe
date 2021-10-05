@@ -1,4 +1,4 @@
-import { render, screen, cleanup } from '@testing-library/react';
+import { render, screen, cleanup, fireEvent } from '@testing-library/react';
 import Square from '../Square';
 
 afterEach(cleanup);
@@ -18,10 +18,11 @@ describe('Square component', ()=> {
   });
 
   it('can click on button', () => {
-    render(<Square onClick={jest.fn()}/>);
+    const handleClick = jest.fn()
+    render(<Square onClick={handleClick}/>);
     const btnElement = screen.getByTestId(/square/i);
     fireEvent.click(btnElement)
-    expect(btnXElement).toHaveBeenCalledTimes(1);
+    expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
 })
