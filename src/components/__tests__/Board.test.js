@@ -3,7 +3,7 @@ import Board from '../Board';
 
 afterEach(cleanup);
 
-test('renders Board component', () => {
+it('renders Board component', () => {
   render(<Board />);
   const divElement = screen.getByTestId(/board/i);
   expect(divElement).toBeInTheDocument();
