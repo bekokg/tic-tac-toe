@@ -1,5 +1,17 @@
+import React, {useReducer} from "react";
+import Square from "../Square";
+import {defaultState, reducer} from '../../reducers'
+
+
 function Board() {
-  return <div data-testid="board"></div>
+  const [{ squares }, dispatch] = useReducer(reducer, defaultState);
+
+  return (
+    <div data-testid="board">
+      {squares.map((square, idx) => <Square key={idx} />)}
+    </div>
+  )
+  
 }
 
 export default Board;

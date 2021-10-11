@@ -20,7 +20,7 @@ describe('Board component', ()=> {
   it('renders Board component with correct number of Square component', () => {
     render(<Board />);
     const squareBtns = screen.getAllByTestId(/square/i);
-    expect(squareBtns).toEqual(Array(9).fill(null).length);
+    expect(squareBtns.length).toEqual(9);
   });
 
 });
