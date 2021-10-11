@@ -7,7 +7,7 @@ function Board() {
   const [{ squares }, dispatch] = useReducer(reducer, defaultState);
 
   return (
-    <div data-testid="board">
+    <div className='board' data-testid="board">
       {squares.map((square, idx) => <Square key={idx} />)}
     </div>
   )
