@@ -4,7 +4,7 @@ import Board from './components/Board';
 function App() {
   return (
     <div className="App">
-      Tic Tac Toe
+      <h1>Tic Tac Toe</h1>
       <Board />
     </div>
   );
