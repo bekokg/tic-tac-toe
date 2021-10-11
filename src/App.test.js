@@ -5,8 +5,8 @@ describe('App component', ()=> {
 
   test('renders tic tac toe app', () => {
     render(<App />);
-    const divElement = screen.getByText(/Tic Tac Toe/i);
-    expect(divElement).toBeInTheDocument();
+    const headingElement = screen.getByRole('heading');
+    expect(headingElement).toBeInTheDocument();
   });
 
   test('renders tic tac toe app with Board component', () => {
