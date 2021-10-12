@@ -1,4 +1,4 @@
-import { render, screen, cleanup } from '@testing-library/react';
+import { render, screen, cleanup, fireEvent } from '@testing-library/react';
 import Board from '../Board';
 
 afterEach(cleanup);
@@ -21,6 +21,16 @@ describe('Board component', ()=> {
     render(<Board />);
     const squareBtns = screen.getAllByTestId(/square/i);
     expect(squareBtns.length).toEqual(9);
+  });
+
+  it('can click on button to show X and O squares', () => {
+    render(<Board />);
+    const btnX = screen.getByTestId(/square-0/i);
+    fireEvent.click(btnX)
+    expect(screen.queryAllByText('X').length).toBe(1);
+    const btnO = screen.getByTestId(/square-1/i);
+    fireEvent.click(btnO)
+    expect(screen.queryAllByText('O').length).toBe(1);
   });
 
 });

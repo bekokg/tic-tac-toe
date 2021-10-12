@@ -25,13 +25,4 @@ describe('Square component', ()=> {
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
-  it('can click on button to show X square', () => {
-    const handleClick = jest.fn()
-    render(<Square onClick={handleClick}/>);
-    const btnElement = screen.getByTestId(/square-0/i);
-    fireEvent.click(btnElement)
-    expect(handleClick).toHaveBeenCalledTimes(1);
-    expect(btnElement).toHaveDisplayValue('X')
-  });
-
 })
