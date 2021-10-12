@@ -21,7 +21,7 @@ const [squares, setSquares] = useState(defaultState.squares);
       {squares.map((square, idx) => (
         <Square key={idx} onClick={()=> handleClick(idx)} index={idx} type={square} />
       ))}
-      <div data-testid='message'>X player's turn</div>
+      <div data-testid='message'>{isXNext ? "X player's turn": "O player's turn"}</div>
     </div>
   )
   
