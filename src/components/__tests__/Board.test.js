@@ -33,4 +33,10 @@ describe('Board component', ()=> {
     expect(screen.queryAllByText('O').length).toBe(1);
   });
 
+  it('should show X player turn message by default', ()=> {
+    render(<Board />);
+    const messageEl = screen.getByTestId(/message/i);
+    expect(messageEl).toHaveDisplayValue("X player's turn")
+  })
+
 });
