@@ -39,4 +39,12 @@ describe('Board component', ()=> {
     expect(messageEl).toHaveTextContent("X player's turn")
   })
 
+  it('should show O player turn message on click', ()=> {
+    render(<Board />);
+    const messageEl = screen.getByTestId(/message/i);
+    const btnX = screen.getByTestId(/square-0/i);
+    fireEvent.click(btnX)
+    expect(messageEl).toHaveTextContent("O player's turn")
+  })
+
 });
