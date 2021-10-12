@@ -36,7 +36,7 @@ describe('Board component', ()=> {
   it('should show X player turn message by default', ()=> {
     render(<Board />);
     const messageEl = screen.getByTestId(/message/i);
-    expect(messageEl).toHaveDisplayValue("X player's turn")
+    expect(messageEl).toHaveTextContent("X player's turn")
   })
 
 });

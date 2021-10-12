@@ -18,7 +18,10 @@ const [squares, setSquares] = useState(defaultState.squares);
 
   return (
     <div className='board' data-testid="board">
-      {squares.map((square, idx) => <Square key={idx} onClick={()=> handleClick(idx)} index={idx} type={square} />)}
+      {squares.map((square, idx) => (
+        <Square key={idx} onClick={()=> handleClick(idx)} index={idx} type={square} />
+      ))}
+      <div data-testid='message'>X player's turn</div>
     </div>
   )
   
