@@ -17,12 +17,14 @@ const [squares, setSquares] = useState(defaultState.squares);
 
 
   return (
-    <div className='board' data-testid="board">
-      {squares.map((square, idx) => (
-        <Square key={idx} onClick={()=> handleClick(idx)} index={idx} type={square} />
-      ))}
+    <>
+      <div className='board' data-testid="board">
+        {squares.map((square, idx) => (
+          <Square key={idx} onClick={()=> handleClick(idx)} index={idx} type={square} />
+        ))}
+      </div>
       <div data-testid='message'>{isXNext ? "X player's turn": "O player's turn"}</div>
-    </div>
+    </>
   )
   
 }
