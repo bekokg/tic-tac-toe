@@ -53,3 +53,11 @@ code {
 .squares:hover {
   background-color: #4979cc;
 }
+
+.message {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
