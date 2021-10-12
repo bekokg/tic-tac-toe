@@ -47,4 +47,9 @@ describe('Board component', ()=> {
     expect(messageEl).toHaveTextContent("O player's turn")
   })
 
+  it('should render reset button', ()=> {
+    render(<Board />);
+    expect(screen.getByText(/reset/i))
+  })
+
 });
