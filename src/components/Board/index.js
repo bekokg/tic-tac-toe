@@ -42,9 +42,9 @@ const [history, setHistory] = useState([defaultState.squares]);
         ))}
       </div>
       <div className='message' data-testid='message'>{isXNext ? "X player's turn": "O player's turn"}</div>
-      <div>
-        <button onClick={handleReset}>Reset</button>
-        <button onClick={handleRewind}>Rewind</button>
+      <div className='control-btn'>
+        <button className='rewind' onClick={handleRewind}>Rewind</button>
+        <button className='reset' onClick={handleReset}>Reset</button>
       </div>
     </>
   )
