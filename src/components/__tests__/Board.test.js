@@ -92,4 +92,20 @@ describe('Board component', ()=> {
     expect(btnX).toBeDisabled()
   })
 
+  it('should show winner message', ()=> {
+    render(<Board />);
+    const messageEl = screen.getByTestId(/message/i);
+    const btnX1 = screen.getByTestId(/square-0/i);
+    const btnO5 = screen.getByTestId(/square-4/i);
+    const btnX3 = screen.getByTestId(/square-2/i);
+    const btnO7 = screen.getByTestId(/square-6/i);
+    const btnX2 = screen.getByTestId(/square-1/i);
+    fireEvent.click(btnX1);
+    fireEvent.click(btnO5);
+    fireEvent.click(btnX2);
+    fireEvent.click(btnO7);
+    fireEvent.click(btnX3);
+    expect(messageEl).toHaveTextContent("Player X won")
+  })
+
 });
