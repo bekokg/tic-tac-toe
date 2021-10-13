@@ -64,6 +64,11 @@ describe('Board component', ()=> {
     fireEvent.click(resetBtn);
     expect(screen.queryAllByText('X').length).toBe(0);
     expect(screen.queryAllByText('O').length).toBe(0);
+  });
+
+  it('should render Rewind button', ()=> {
+    render(<Board />);
+    expect(screen.getByText(/rewind/i))
   })
 
 });
