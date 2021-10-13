@@ -122,9 +122,9 @@ describe('Board component', ()=> {
     const btnX8 = screen.getByTestId(/square-7/i);
     fireEvent.click(btnX1);
     fireEvent.click(btnO5);
-    fireEvent.click(btnO2);
     fireEvent.click(btnO7);
     fireEvent.click(btnX3);
+    fireEvent.click(btnO2);
     fireEvent.click(btnO4);
     fireEvent.click(btnX6);
     fireEvent.click(btnO9);

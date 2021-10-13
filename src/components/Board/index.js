@@ -16,7 +16,9 @@ function Board() {
         ))}
       </div>
       <div className='message' data-testid='message'>
-        {winner ? `Player ${winner} won` : isXNext ? "X player's turn": "O player's turn"}
+        {
+          winner || squares.every(val => val) ? <>{winner ? `Player ${winner} won` : "It's a Tie"}</> : <>{isXNext ? "X player's turn": "O player's turn"}</>
+        }
         </div>
       <div className='control-btn'>
         <button className='rewind' onClick={()=> dispatch({type: 'REWIND'})}>Rewind</button>
