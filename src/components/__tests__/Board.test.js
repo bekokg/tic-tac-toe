@@ -130,6 +130,22 @@ describe('Board component', ()=> {
     fireEvent.click(btnO9);
     fireEvent.click(btnX8);
     expect(messageEl).toHaveTextContent("It's a Tie")
+  });
+
+  it('should disable all squares if game is over', ()=> {
+    render(<Board />);
+    const squareBtns = screen.getAllByTestId(/square/i);
+    const btnX1 = screen.getByTestId(/square-0/i);
+    const btnO5 = screen.getByTestId(/square-4/i);
+    const btnX3 = screen.getByTestId(/square-2/i);
+    const btnO7 = screen.getByTestId(/square-6/i);
+    const btnX2 = screen.getByTestId(/square-1/i);
+    fireEvent.click(btnX1);
+    fireEvent.click(btnO5);
+    fireEvent.click(btnX2);
+    fireEvent.click(btnO7);
+    fireEvent.click(btnX3);
+    squareBtns.forEach(btn => expect(btn).toBeDisabled())
   })
 
 });
