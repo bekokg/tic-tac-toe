@@ -69,6 +69,20 @@ describe('Board component', ()=> {
   it('should render Rewind button', ()=> {
     render(<Board />);
     expect(screen.getByText(/rewind/i))
-  })
+  });
+
+  it('can click on Rewind button to rewind', ()=> {
+    render(<Board />);
+    const btnX = screen.getByTestId(/square-0/i);
+    fireEvent.click(btnX)
+    expect(screen.queryAllByText('X').length).toBe(1);
+    const btnO = screen.getByTestId(/square-1/i);
+    fireEvent.click(btnO)
+    expect(screen.queryAllByText('O').length).toBe(1);
+    const rewindBtn = screen.getByText(/rewind/i)
+    fireEvent.click(rewindBtn);
+    expect(screen.queryAllByText('X').length).toBe(1);
+    expect(screen.queryAllByText('O').length).toBe(0);
+  });
 
 });
