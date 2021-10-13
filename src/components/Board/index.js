@@ -26,6 +26,7 @@ const [squares, setSquares] = useState(defaultState.squares);
       <div className='message' data-testid='message'>{isXNext ? "X player's turn": "O player's turn"}</div>
       <div>
         <button onClick={()=> setSquares(defaultState.squares)}>Reset</button>
+        <button>Rewind</button>
       </div>
     </>
   )
