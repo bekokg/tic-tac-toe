@@ -7,15 +7,25 @@ function Board() {
   // const [{ squares }, dispatch] = useReducer(reducer, defaultState);
 const [isXNext, setIsXNext] = useState(true);
 const [squares, setSquares] = useState(defaultState.squares);
+const [history] = useState([defaultState.squares]);
 
   function handleClick(index) {
     const newSquares = [...squares];
     newSquares[index] = isXNext ? 'X': 'O';
+    history.push(newSquares);
     setIsXNext(!isXNext);
-    setSquares(newSquares)
+    setSquares(newSquares);
   }
 
-
+  function handleRewind() {
+    if(history.length > 1) {
+      history.pop();
+      const newSquares = history[history.length - 1];
+      setSquares(newSquares);
+      setIsXNext(!isXNext)
+    }
+  }
+  
   return (
     <>
       <div className='board' data-testid="board">
@@ -26,7 +36,7 @@ const [squares, setSquares] = useState(defaultState.squares);
       <div className='message' data-testid='message'>{isXNext ? "X player's turn": "O player's turn"}</div>
       <div>
         <button onClick={()=> setSquares(defaultState.squares)}>Reset</button>
-        <button>Rewind</button>
+        <button onClick={handleRewind}>Rewind</button>
       </div>
     </>
   )
