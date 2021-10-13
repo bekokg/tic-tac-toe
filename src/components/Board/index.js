@@ -12,7 +12,7 @@ function Board() {
     <>
       <div className='board' data-testid="board">
         {squares.map((square, idx) => (
-          <Square key={idx} onClick={()=> dispatch({type: 'CLICK', index: idx})} index={idx} type={square} />
+          <Square key={idx} onClick={()=> dispatch({type: 'CLICK', index: idx})} allDisabled={winner} index={idx} type={square} />
         ))}
       </div>
       <div className='message' data-testid='message'>
