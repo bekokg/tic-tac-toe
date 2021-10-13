@@ -52,4 +52,18 @@ describe('Board component', ()=> {
     expect(screen.getByText(/reset/i))
   })
 
+  it('can click on reset button to restart the game', ()=> {
+    render(<Board />);
+    const btnX = screen.getByTestId(/square-0/i);
+    fireEvent.click(btnX)
+    expect(screen.queryAllByText('X').length).toBe(1);
+    const btnO = screen.getByTestId(/square-1/i);
+    fireEvent.click(btnO)
+    expect(screen.queryAllByText('O').length).toBe(1);
+    const resetBtn = screen.getByText(/reset/i)
+    fireEvent.click(resetBtn);
+    expect(screen.queryAllByText('X').length).toBe(0);
+    expect(screen.queryAllByText('O').length).toBe(0);
+  })
+
 });
