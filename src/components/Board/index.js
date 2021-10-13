@@ -1,6 +1,7 @@
 import React, {useReducer, useState} from "react";
 import Square from "../Square";
 import {defaultState, reducer} from '../../reducers'
+import { calculateWinner } from '../../utils'
 
 
 function Board() {
@@ -8,6 +9,7 @@ function Board() {
 const [isXNext, setIsXNext] = useState(true);
 const [squares, setSquares] = useState(defaultState.squares);
 const [history, setHistory] = useState([defaultState.squares]);
+const winner = calculateWinner(squares);
 
   function handleClick(index) {
     const newSquares = [...squares];
@@ -41,7 +43,9 @@ const [history, setHistory] = useState([defaultState.squares]);
           <Square key={idx} onClick={()=> handleClick(idx)} index={idx} type={square} />
         ))}
       </div>
-      <div className='message' data-testid='message'>{isXNext ? "X player's turn": "O player's turn"}</div>
+      <div className='message' data-testid='message'>
+        {winner ? `Player ${winner} won` : isXNext ? "X player's turn": "O player's turn"}
+        </div>
       <div className='control-btn'>
         <button className='rewind' onClick={handleRewind}>Rewind</button>
         <button className='reset' onClick={handleReset}>Reset</button>
