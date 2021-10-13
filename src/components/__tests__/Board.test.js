@@ -85,4 +85,11 @@ describe('Board component', ()=> {
     expect(screen.queryAllByText('O').length).toBe(0);
   });
 
+  it('should disable square with value', ()=> {
+    render(<Board />);
+    const btnX = screen.getByTestId(/square-0/i);
+    fireEvent.click(btnX)
+    expect(btnX).toBeDisabled()
+  })
+
 });
