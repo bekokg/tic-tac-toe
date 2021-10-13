@@ -106,6 +106,30 @@ describe('Board component', ()=> {
     fireEvent.click(btnO7);
     fireEvent.click(btnX3);
     expect(messageEl).toHaveTextContent("Player X won")
+  });
+
+  it('should show Tie message if no winner', ()=> {
+    render(<Board />);
+    const messageEl = screen.getByTestId(/message/i);
+    const btnX1 = screen.getByTestId(/square-0/i);
+    const btnO5 = screen.getByTestId(/square-4/i);
+    const btnX3 = screen.getByTestId(/square-2/i);
+    const btnO7 = screen.getByTestId(/square-6/i);
+    const btnO2 = screen.getByTestId(/square-1/i);
+    const btnO4 = screen.getByTestId(/square-3/i);
+    const btnX6 = screen.getByTestId(/square-5/i);
+    const btnO9 = screen.getByTestId(/square-8/i);
+    const btnX8 = screen.getByTestId(/square-7/i);
+    fireEvent.click(btnX1);
+    fireEvent.click(btnO5);
+    fireEvent.click(btnO2);
+    fireEvent.click(btnO7);
+    fireEvent.click(btnX3);
+    fireEvent.click(btnO4);
+    fireEvent.click(btnX6);
+    fireEvent.click(btnO9);
+    fireEvent.click(btnX8);
+    expect(messageEl).toHaveTextContent("It's a Tie")
   })
 
 });
